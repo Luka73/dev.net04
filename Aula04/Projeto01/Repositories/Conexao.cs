@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto01
+namespace Projeto01.Repositories
 {
-    class Program
+    public class Conexao
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
