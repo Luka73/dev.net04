@@ -21,7 +21,7 @@ namespace Projeto01.Repositories
             Command.Parameters.AddWithValue("@Nome", setor.Nome);
             Command.ExecuteNonQuery();
         }
-
+          
         public void Atualizar(Setor setor)
         {
             string query = "update Setor set Nome = @Nome where IdSetor = @IdSetor";
@@ -39,6 +39,28 @@ namespace Projeto01.Repositories
             Command = new SqlCommand(query, Connection);
             Command.Parameters.AddWithValue("@IdSetor", idSetor);
             Command.ExecuteNonQuery();
+        }
+
+        public List<Setor> Consultar()
+        {
+            string query = "select * from Setor";
+
+            Command = new SqlCommand(query, Connection);
+            DataReader = Command.ExecuteReader();
+
+            List<Setor> lista = new List<Setor>();
+
+            while(DataReader.Read())
+            {
+                Setor setor = new Setor();
+
+                setor.IdSetor = Convert.ToInt32(DataReader["IdSetor"]);
+                setor.Nome = Convert.ToString(DataReader["Nome"]);
+
+                lista.Add(setor);
+            }
+
+            return lista;
         }
     }
 }
