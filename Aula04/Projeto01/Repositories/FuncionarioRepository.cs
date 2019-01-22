@@ -25,7 +25,7 @@ namespace Projeto01.Repositories
 
         public void Atualizar(Funcionario funcionario)
         {
-            string query = "update Funcionario set Nome = @Nome " +
+            string query = "update Funcionario set Nome = @Nome, " +
                 "Salario = @Salario, DataAdmissao = @DataAdmissao, " +
                 "IdSetor = @IdSetor where IdFuncionario = @IdFuncionario";
 
